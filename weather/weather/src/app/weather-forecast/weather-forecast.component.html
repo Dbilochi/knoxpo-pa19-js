@@ -1,0 +1,24 @@
+
+<main class="container">
+    <div class="card-wrapper">
+      <div *ngFor='let a of data'>
+        <section class="card anim-flip anim-flip-card-2" *ngIf="a.dt_txt | checkTime">
+            <header>
+                <h1 class="card-header" *ngIf="a.dt_txt | checkTime">{{a.dt_txt | getDay}}</h1>
+            </header>
+            <p class="card-temp box-highlight" *ngIf="a.dt_txt | checkTime">{{a.main.temp | tempKelvin | number:'1.0-0'}}</p>
+            <div class="icon">
+                <div class="cloud-group">
+                    <div class="sun-group">
+                        <span class="icon-cloud sun"></span>
+                        <span class="icon-cloud sunshine"></span>
+                    </div>
+                    <span class="icon-cloud cloud-circle shadow-cloud-clip"></span>
+                    <span class="icon-cloud cloud-base shadow-cloud-clip"></span>
+                </div>
+            </div>
+            <p class="card-info">{{a.weather[0].description}}</p>
+        </section>
+      </div>
+    </div>
+</main>
